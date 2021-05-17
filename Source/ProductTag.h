@@ -1,5 +1,6 @@
 #pragma once
 #include <atlcoll.h>
+#include <atlstr.h>
 
 
 enum PriorityTag
