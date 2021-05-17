@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/TownShip/v16/
+/TownShip Form/obj/Debug/
+/TownShip Form.Tests/obj/Debug/
+/TownShip Form/bin
+/TownShip Form.Tests/bin
+/TownShip/Debug
+/Debug/
+/UnitTest2/Debug
