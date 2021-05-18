@@ -1,8 +1,7 @@
 #pragma once
 #include "ProductTag.h"
 #include <atlcoll.h>
-#include <utility>
-//CAllProductSpisok spisok;
+
 class CSmartArray
 {
 	typedef CAtlMap<ProductTag, int>::CPair ProductCount;

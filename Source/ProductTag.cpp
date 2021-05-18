@@ -2,7 +2,6 @@
 #include "stdafx.h"
 #include "ProductTag.h"
 #include <atlcoll.h>
-#include <atlstr.h>
 
 CAllProductSpisok* GetAllProductSpisok()
 {

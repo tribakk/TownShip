@@ -1,8 +1,9 @@
 #pragma once
 
-#include "CFactory.h"
 #include "CSmartArray.h"
 #include "ProductTag.h"
+
+class CFactory;
 class CProductCalc
 {
 	CSmartArray m_Array;

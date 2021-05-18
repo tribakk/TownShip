@@ -1,6 +1,8 @@
 #pragma once
 #include "stdafx.h"
 #include "CProductCalc.h"
+#include "CFactory.h"
+
 CProductCalc::CProductCalc()
 {
 	m_FactArray.Add(new CMilkFactory());
