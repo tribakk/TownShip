@@ -39,9 +39,6 @@
     <ClInclude Include="..\Source\CProductCalc.h">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\CProductCallFill.h">
-      <Filter>Source</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -57,9 +54,6 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="..\Source\CProductCalc.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\CProductCallFill.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

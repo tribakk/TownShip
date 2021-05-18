@@ -14,8 +14,6 @@ CProductCalc::CProductCalc()
 	m_FactArray.Add(new CPaperFactory());
 	m_FactArray.Add(new CIceCreamFactory());
 	m_FactArray.Add(new ÑconfectioneryFactory());
-
-	SetHaveProduct(m_AlreadyHave);
 }
 
 CProductCalc::~CProductCalc()
@@ -26,10 +24,16 @@ CProductCalc::~CProductCalc()
 		delete m_FactArray[i];
 	}
 }
-void CProductCalc::Add(CString name, int count)
+void CProductCalc::AddNeed(CString name, int count)
 {
 	m_Array.Add(name, count);
 }
+
+void CProductCalc::AddAlreadyHave(CString name, int count)
+{
+	m_AlreadyHave.Add(name, count);
+}
+
 void CProductCalc::Calc()
 {
 	size_t count = m_FactArray.GetCount();
