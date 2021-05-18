@@ -98,6 +98,7 @@ public:
 
 class CAllProductSpisok
 {
+	friend CAllProductSpisok* GetAllProductSpisok();
 	CAtlArray<ProductTagString> m_Array;
 public:
 	CString GetName(ProductTag tag)
@@ -133,7 +134,12 @@ public:
 			
 		return tag;
 	}
-
+private:
+	//создать можно только из GetAllProductSpisok
+	CAllProductSpisok(const CAllProductSpisok&) = delete;
+	CAllProductSpisok(CAllProductSpisok&&) = delete;
+	CAllProductSpisok& CAllProductSpisok::operator=(const CAllProductSpisok&) = delete;
+	CAllProductSpisok& CAllProductSpisok::operator=(CAllProductSpisok&&) = delete;
 	CAllProductSpisok()
 	{
 		m_Array.Add(ProductTagString(ProductTag::ptPhenica, _T("пшеница")));
@@ -205,4 +211,9 @@ public:
 		m_Array.Add(ProductTagString(ProductTag::ptChizkeyk, _T("чизкейк")));
 	}
 };
-CAllProductSpisok spisok;
+
+CAllProductSpisok* GetAllProductSpisok()
+{
+	static CAllProductSpisok spisok;
+	return &spisok;
+}

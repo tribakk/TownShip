@@ -19,7 +19,7 @@ public:
 	}
 	void Add(const CString& name, int count)
 	{
-		ProductTag tag = spisok.GetTag(name);
+		ProductTag tag = GetAllProductSpisok()->GetTag(name);
 		Add(tag, count);
 	}
 	void Merge(CSmartArray& Arr)
@@ -55,7 +55,7 @@ public:
 			ProductCount* prCount = m_TagMap.GetNext(pos);
 			CString sCount;
 			sCount.Format(_T(": %i \n\r"), prCount->m_value);
-			OutputDebugString(spisok.GetName(prCount->m_key) + sCount);
+			OutputDebugString(GetAllProductSpisok()->GetName(prCount->m_key) + sCount);
 		}
 	}
 	bool IsEmpty()

@@ -52,7 +52,7 @@ public:
 
 	void AddResult(CString name, int count)
 	{
-		m_Result.Add(spisok.GetTag(name), count);
+		m_Result.Add(GetAllProductSpisok()->GetTag(name), count);
 	}
 	void Print()
 	{
@@ -70,10 +70,10 @@ class CMilkFactory : public CFactory
 public:
 	CMilkFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("сливки")));
-		m_TagInputArray.Add(spisok.GetTag(_T("сыр")));
-		m_TagInputArray.Add(spisok.GetTag(_T("масло")));
-		m_TagInputArray.Add(spisok.GetTag(_T("йогурт")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("сливки")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("сыр")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("масло")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("йогурт")));
 		m_Priority = PriorityTag::one;
 		Init();
 	}
@@ -89,25 +89,25 @@ public:
 		{
 			//сливки
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("молоко")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("молоко")), 1 * count);
 			counter++;
 		}
 		{
 			//сливки
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("молоко")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("молоко")), 2 * count);
 			counter++;
 		}
 		{
 			//сливки
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("молоко")), 3 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("молоко")), 3 * count);
 			counter++;
 		}
 		{
 			//сливки
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("молоко")), 4 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("молоко")), 4 * count);
 			counter++;
 		}
 	}
@@ -119,12 +119,12 @@ class CBakery : public CFactory
 public:
 	CBakery()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("хлеб")));
-		m_TagInputArray.Add(spisok.GetTag(_T("печенье")));
-		m_TagInputArray.Add(spisok.GetTag(_T("бублик")));
-		m_TagInputArray.Add(spisok.GetTag(_T("пицца")));
-		m_TagInputArray.Add(spisok.GetTag(_T("картофельный хлеб")));
-		m_TagInputArray.Add(spisok.GetTag(_T("банановый хлеб")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("хлеб")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("печенье")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("бублик")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("пицца")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("картофельный хлеб")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("банановый хлеб")));
 		m_Priority = PriorityTag::one;
 		Init();
 	}
@@ -140,38 +140,38 @@ public:
 		{
 			//хлеб
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("пшеница")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пшеница")), 2 * count);
 			counter++;
 		}
 		{
 			//печенье
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("пшеница")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("€йцо")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пшеница")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("€йцо")), 2 * count);
 			counter++;
 		}
 		{
 			//бублик
-			m_Result.Add(spisok.GetTag(_T("пшеница")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("€йцо")), 3 * count);
-			m_Result.Add(spisok.GetTag(_T("сахар")), 3 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пшеница")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("€йцо")), 3 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сахар")), 3 * count);
 			counter++;
 		}
 		{
 			//пицца
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("пшеница")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("сыр")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("томат")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пшеница")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сыр")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("томат")), 2 * count);
 			counter++;
 		}
 
 		{
 			//картофельный хлеб
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("пшеница")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("картофель")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("€йцо")), 4 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пшеница")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("картофель")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("€йцо")), 4 * count);
 			counter++;
 		}
 
@@ -188,9 +188,9 @@ class —WeavingFactory : public CFactory
 public:
 	—WeavingFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("хлопкова€ ткань")));
-		m_TagInputArray.Add(spisok.GetTag(_T("пр€жа")));
-		m_TagInputArray.Add(spisok.GetTag(_T("шелкова€ ткань")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("хлопкова€ ткань")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("пр€жа")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("шелкова€ ткань")));
 		m_Priority = PriorityTag::one;
 		Init();
 	}
@@ -205,19 +205,19 @@ public:
 		{
 			//хлопкова€ ткань
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("хлопок")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("хлопок")), 2 * count);
 			counter++;
 		}
 		{
 			//пр€жа
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("шерсть")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("шерсть")), 2 * count);
 			counter++;
 		}
 		{
 			//шелкова€ ткань
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("шелк")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("шелк")), 2 * count);
 			counter++;
 		}
 	}
@@ -229,12 +229,12 @@ class CSewingFactory : public CFactory
 public:
 	CSewingFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("рубашка")));
-		m_TagInputArray.Add(spisok.GetTag(_T("свитер")));
-		m_TagInputArray.Add(spisok.GetTag(_T("пальто")));
-		m_TagInputArray.Add(spisok.GetTag(_T("шл€па")));
-		m_TagInputArray.Add(spisok.GetTag(_T("платье")));
-		m_TagInputArray.Add(spisok.GetTag(_T("костюм")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("рубашка")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("свитер")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("пальто")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("шл€па")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("платье")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("костюм")));
 		m_Priority = PriorityTag::two;
 		Init();
 	}
@@ -250,34 +250,34 @@ public:
 		{
 			//рубашка
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("хлопкова€ ткань")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("хлопкова€ ткань")), 1 * count);
 			counter++;
 		}
 		{
 			//свитер
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("пр€жа")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пр€жа")), 1 * count);
 			counter++;
 		}
 		{
 			//пальто
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("хлопкова€ ткань")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("пр€жа")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("хлопкова€ ткань")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пр€жа")), 1 * count);
 			counter++;
 		}
 		{
 			//шл€па
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("хлопкова€ ткань")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("шелкова€ ткань")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("хлопкова€ ткань")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("шелкова€ ткань")), 1 * count);
 			counter++;
 		}
 		{
 			//платье
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("пр€жа")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("шелкова€ ткань")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пр€жа")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("шелкова€ ткань")), 1 * count);
 			counter++;
 		}
 		{
@@ -295,11 +295,11 @@ class CSnackFactory : public CFactory
 public:
 	CSnackFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("попкорн")));
-		m_TagInputArray.Add(spisok.GetTag(_T("кукурузные чипсы")));
-		m_TagInputArray.Add(spisok.GetTag(_T("гранола")));
-		m_TagInputArray.Add(spisok.GetTag(_T("чипсы")));
-		m_TagInputArray.Add(spisok.GetTag(_T("канопе")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("попкорн")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("кукурузные чипсы")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("гранола")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("чипсы")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("канопе")));
 		m_Priority = PriorityTag::three;
 		Init();
 	}
@@ -314,26 +314,26 @@ public:
 		{
 			//попкорн
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("кукуруза")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("кукуруза")), 2 * count);
 			counter++;
 		}
 		{
 			//кукурузные чипсы
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("кукуруза")), 3 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("кукуруза")), 3 * count);
 			counter++;
 		}
 		{
 			//гранола
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("пшеница")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("клубника")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пшеница")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("клубника")), 2 * count);
 			counter++;
 		}
 		{
 			//чипсы
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("картофель")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("картофель")), 2 * count);
 			counter++;
 		}
 		{
@@ -350,11 +350,11 @@ class CFastFoodFactory : public CFactory
 public:
 	CFastFoodFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("милкшейк")));
-		m_TagInputArray.Add(spisok.GetTag(_T("чизбургер")));
-		m_TagInputArray.Add(spisok.GetTag(_T("сэндвич")));
-		m_TagInputArray.Add(spisok.GetTag(_T("картошка фри")));
-		m_TagInputArray.Add(spisok.GetTag(_T("печеный картофель")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("милкшейк")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("чизбургер")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("сэндвич")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("картошка фри")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("печеный картофель")));
 		m_Priority = PriorityTag::three;
 		Init();
 	}
@@ -369,32 +369,32 @@ public:
 		{
 			//милкшейк
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("молоко")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("клубника")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("молоко")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("клубника")), 1 * count);
 			counter++;
 		}
 		{
 			//чизбургер
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("хлеб")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("сыр")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("томат")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("хлеб")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сыр")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("томат")), 1 * count);
 			counter++;
 		}
 		{
 			//сэндвич
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("хлеб")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("масло")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("клубника")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("хлеб")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("масло")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("клубника")), 2 * count);
 			counter++;
 		}
 		{
 			//картошка фри
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("картофель")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("сливки")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("томат")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("картофель")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сливки")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("томат")), 2 * count);
 			counter++;
 		}
 		{
@@ -411,9 +411,9 @@ class CRubberFactory : public CFactory
 public:
 	CRubberFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("резина")));
-		m_TagInputArray.Add(spisok.GetTag(_T("пластик")));
-		m_TagInputArray.Add(spisok.GetTag(_T("клей")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("резина")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("пластик")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("клей")));
 		size_t count = m_TagInputArray.GetCount();
 		m_Priority = PriorityTag::three;
 		Init();
@@ -430,13 +430,13 @@ public:
 		{
 			//резина
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("каучук")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("каучук")), 1 * count);
 			counter++;
 		}
 		{
 			//пластик
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("каучук")), 3 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("каучук")), 3 * count);
 			counter++;
 		}
 		{
@@ -453,10 +453,10 @@ class CSugarFactory : public CFactory
 public:
 	CSugarFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("сахар")));
-		m_TagInputArray.Add(spisok.GetTag(_T("сироп")));
-		m_TagInputArray.Add(spisok.GetTag(_T("карамель")));
-		m_TagInputArray.Add(spisok.GetTag(_T("медова€ карамель")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("сахар")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("сироп")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("карамель")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("медова€ карамель")));
 		m_Priority = PriorityTag::two;
 		Init();
 	}
@@ -471,19 +471,19 @@ public:
 		{
 			//сахар
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("сахарный тросник")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сахарный тросник")), 1 * count);
 			counter++;
 		}
 		{
 			//сироп
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("сахарный тросник")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сахарный тросник")), 2 * count);
 			counter++;
 		}
 		{
 			//карамель
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("сахарный тросник")), 3 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сахарный тросник")), 3 * count);
 			counter++;
 		}
 		{
@@ -500,10 +500,10 @@ class CPaperFactory : public CFactory
 public:
 	CPaperFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("бумага")));
-		m_TagInputArray.Add(spisok.GetTag(_T("бумажные полотенца")));
-		m_TagInputArray.Add(spisok.GetTag(_T("обои")));
-		m_TagInputArray.Add(spisok.GetTag(_T("книга")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("бумага")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("бумажные полотенца")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("обои")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("книга")));
 		m_Priority = PriorityTag::two;
 		Init();
 	}
@@ -518,20 +518,20 @@ public:
 		{
 			//бумага
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("сосна")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сосна")), 1 * count);
 			counter++;
 		}
 		{
 			//бумажные полотенца
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("сосна")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сосна")), 2 * count);
 			counter++;
 		}
 		{
 			//обои
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("сосна")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("резина")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сосна")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("резина")), 1 * count);
 			counter++;
 		}
 		{
@@ -548,11 +548,11 @@ class CIceCreamFactory : public CFactory
 public:
 	CIceCreamFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("мороженное")));
-		m_TagInputArray.Add(spisok.GetTag(_T("фруктовый лед")));
-		m_TagInputArray.Add(spisok.GetTag(_T("замороженный йогурт")));
-		m_TagInputArray.Add(spisok.GetTag(_T("эскимо")));
-		m_TagInputArray.Add(spisok.GetTag(_T("ананасовый сорбет")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("мороженное")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("фруктовый лед")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("замороженный йогурт")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("эскимо")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("ананасовый сорбет")));
 		m_Priority = PriorityTag::three;
 		Init();
 	}
@@ -567,31 +567,31 @@ public:
 		{
 			//мороженное
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("молоко")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("сливки")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("сахар")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("молоко")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сливки")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сахар")), 1 * count);
 			counter++;
 		}
 		{
 			//фруктовый лед
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("клубника")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("сахар")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("клубника")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сахар")), 1 * count);
 			counter++;
 		}
 		{
 			//замороженный йогурт
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("йогурт")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("сливки")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("йогурт")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сливки")), 1 * count);
 			counter++;
 		}
 		{
 			//эскимо
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("сироп")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("какао")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("сосна")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сироп")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("какао")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сосна")), 1 * count);
 			counter++;
 		}
 		{
@@ -608,11 +608,11 @@ class —confectioneryFactory : public CFactory
 public:
 	—confectioneryFactory()
 	{
-		m_TagInputArray.Add(spisok.GetTag(_T("кекс")));
-		m_TagInputArray.Add(spisok.GetTag(_T("шоколадный пирог")));
-		m_TagInputArray.Add(spisok.GetTag(_T("пироженое")));
-		m_TagInputArray .Add(spisok.GetTag(_T("пончик")));
-		m_TagInputArray.Add(spisok.GetTag(_T("чизкейк")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("кекс")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("шоколадный пирог")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("пироженое")));
+		m_TagInputArray .Add(GetAllProductSpisok()->GetTag(_T("пончик")));
+		m_TagInputArray.Add(GetAllProductSpisok()->GetTag(_T("чизкейк")));
 		m_Priority = PriorityTag::three;
 		Init();
 	}
@@ -627,33 +627,33 @@ public:
 		{
 			//кекс
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("пшеница")), 3 * count);
-			m_Result.Add(spisok.GetTag(_T("сахар")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("€йцо")), 4 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пшеница")), 3 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сахар")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("€йцо")), 4 * count);
 			counter++;
 		}
 		{
 			//шоколадный пирог
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("какао")), 2 * count);
-			m_Result.Add(spisok.GetTag(_T("сироп")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("масло")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("какао")), 2 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сироп")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("масло")), 1 * count);
 			counter++;
 		}
 		{
 			//пироженое
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("сахар")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("€йцо")), 5 * count);
-			m_Result.Add(spisok.GetTag(_T("сливки")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сахар")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("€йцо")), 5 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сливки")), 1 * count);
 			counter++;
 		}
 		{
 			//пончик
 			count = m_InputCount[counter];
-			m_Result.Add(spisok.GetTag(_T("бублик")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("карамель")), 1 * count);
-			m_Result.Add(spisok.GetTag(_T("какао")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("бублик")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("карамель")), 1 * count);
+			m_Result.Add(GetAllProductSpisok()->GetTag(_T("какао")), 1 * count);
 			counter++;
 		}
 		{
