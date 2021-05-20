@@ -53,5 +53,8 @@
     <ClCompile Include="..\Source\ProductTag.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="CSmartArray_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
