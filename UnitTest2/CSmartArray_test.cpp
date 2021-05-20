@@ -49,17 +49,17 @@ namespace CSmartArray_test
 			Assert::IsTrue(testArray2.GetTagCount(ProductTag::ptBublic) == 0);
 		}
 
-		//TEST_METHOD(Exclude2)
-		//{
-		//	CSmartArray testArray1;
-		//	testArray1.Add(ProductTag::ptBublic, 3);
-		//	CSmartArray testArray2;
-		//	testArray2.Add(ProductTag::ptBublic, 2);
-		//	testArray2.ExcludeWhatHave(testArray1);
+		TEST_METHOD(Exclude2)
+		{
+			CSmartArray testArray1;
+			testArray1.Add(ProductTag::ptBublic, 3);
+			CSmartArray testArray2;
+			testArray2.Add(ProductTag::ptBublic, 2);
+			testArray2.ExcludeWhatHave(testArray1);
 
-		//	Assert::IsTrue(testArray1.GetTagCount(ProductTag::ptBublic) == 1);
-		//	Assert::IsTrue(testArray2.GetTagCount(ProductTag::ptBublic) == 0);
-		//}
+			Assert::IsTrue(testArray1.GetTagCount(ProductTag::ptBublic) == 1);
+			Assert::IsTrue(testArray2.GetTagCount(ProductTag::ptBublic) == 0);
+		}
 
 		TEST_METHOD(Exclude3)
 		{

@@ -62,19 +62,19 @@ void CSmartArray::ExcludeWhatHave(CSmartArray& Arr)
 	POSITION pos = m_TagMap.GetStartPosition();
 	for (; pos != NULL;)
 	{
-		ProductCount* prCount = m_TagMap.GetNext(pos);
-		ProductTag tag = prCount->m_key;
+		ProductCount prCount(*m_TagMap.GetNext(pos)); //создаем копию, т.к. жизнь указателя не гарантирована
+		ProductTag tag = prCount.m_key;
 		if (int count = Arr.GetTagCount(tag))
 		{
-			if (prCount->m_value > count)
+			if (prCount.m_value > count)
 			{
 				Add(tag, -count);
 				Arr.ClearTag(tag);
 			}
-			else if (prCount->m_value < count)
+			else if (prCount.m_value < count)
 			{
 				ClearTag(tag);
-				Arr.Add(tag, -prCount->m_value);
+				Arr.Add(tag, -prCount.m_value);
 			}
 			else //одинаковое значение
 			{
