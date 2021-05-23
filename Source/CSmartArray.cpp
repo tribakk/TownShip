@@ -6,75 +6,77 @@ void CSmartArray::Add(ProductTag tag, int count)
 {
 	if (count == 0)
 		return;
-	if (m_TagMap.Lookup(tag))
+	if (m_TagMap.find(tag) != m_TagMap.end())
 		m_TagMap[tag] += count;
 	else
 		m_TagMap[tag] = count;
 }
-void CSmartArray::Add(const CString& name, int count)
+void CSmartArray::Add(const std::string& name, int count)
 {
 	ProductTag tag = GetAllProductSpisok()->GetTag(name);
 	Add(tag, count);
 }
 void CSmartArray::Merge(CSmartArray& Arr)
 {
-	POSITION pos = Arr.m_TagMap.GetStartPosition();
-	for (; pos != NULL;)
+	for (auto iter = Arr.m_TagMap.begin(); iter != Arr.m_TagMap.end(); iter++)
 	{
-		ProductCount* prCount = Arr.m_TagMap.GetNext(pos);
-		Add(prCount->m_key, prCount->m_value);
+		Add(iter->first, iter->second);
 	}
 }
 void CSmartArray::ClearTag(ProductTag tag)
 {
-	m_TagMap.RemoveKey(tag);
+	m_TagMap.erase(tag);
 }
 
 int CSmartArray::GetTagCount(ProductTag tag)
 {
 	int count = 0;
-	if (m_TagMap.Lookup(tag))
+	if (m_TagMap.find(tag) != m_TagMap.end())
 		count = m_TagMap[tag];
 	return count;
 }
 void CSmartArray::RemoveAll()
 {
-	m_TagMap.RemoveAll();
+	m_TagMap.clear();
 }
 void CSmartArray::Print()
 {
-	POSITION pos = m_TagMap.GetStartPosition();
-	for (; pos != NULL;)
+	for (auto iter = m_TagMap.begin(); iter != m_TagMap.end(); iter++)
 	{
-		ProductCount* prCount = m_TagMap.GetNext(pos);
-		CString sCount;
-		sCount.Format(_T(": %i \n\r"), prCount->m_value);
-		OutputDebugString(GetAllProductSpisok()->GetName(prCount->m_key) + sCount);
+		ProductTag tag = iter->first;
+		int count = iter->second;
+		std::string tagName = GetAllProductSpisok()->GetName(tag);
+		std::string text = tagName + " - " + std::to_string(count);
+		OutputDebugStringA(text.c_str());
 	}
 }
 bool CSmartArray::IsEmpty()
 {
-	return m_TagMap.IsEmpty();
+	return m_TagMap.empty();
 }
 
 void CSmartArray::ExcludeWhatHave(CSmartArray& Arr)
 {
-	POSITION pos = m_TagMap.GetStartPosition();
-	for (; pos != NULL;)
+	std::vector<ProductTag> tagVector;
+	for (auto iter = m_TagMap.begin(); iter != m_TagMap.end(); iter++)
 	{
-		ProductCount prCount(*m_TagMap.GetNext(pos)); //создаем копию, т.к. жизнь указателя не гарантирована
-		ProductTag tag = prCount.m_key;
+		tagVector.push_back(iter->first);
+	}
+	for (auto iter = tagVector.begin(); iter != tagVector.end(); iter++)
+	{
+		ProductTag tag = *iter;
+		int value = m_TagMap[tag];
 		if (int count = Arr.GetTagCount(tag))
 		{
-			if (prCount.m_value > count)
+			if (value > count)
 			{
 				Add(tag, -count);
 				Arr.ClearTag(tag);
 			}
-			else if (prCount.m_value < count)
+			else if (value < count)
 			{
 				ClearTag(tag);
-				Arr.Add(tag, -prCount.m_value);
+				Arr.Add(tag, -value);
 			}
 			else //одинаковое значение
 			{

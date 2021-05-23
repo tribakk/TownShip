@@ -1,14 +1,13 @@
 #pragma once
 #include "ProductTag.h"
-#include <atlcoll.h>
+#include <map>
 
 class CSmartArray
 {
-	typedef CAtlMap<ProductTag, int>::CPair ProductCount;
-	CAtlMap<ProductTag, int> m_TagMap;
+	std::map<ProductTag, int> m_TagMap;
 public:
 	void Add(ProductTag tag, int count);
-	void Add(const CString& name, int count);
+	void Add(const std::string& name, int count);
 	void Merge(CSmartArray& Arr);
 	void ClearTag(ProductTag tag);
 

@@ -1,5 +1,6 @@
 #pragma once
-#include <atlcoll.h>
+#include <string>
+#include <vector>
 
 class CAllProductSpisok;
 CAllProductSpisok* GetAllProductSpisok();
@@ -88,8 +89,8 @@ class ProductTagString
 {
 public:
 	ProductTag m_Tag;
-	CString m_Name;
-	ProductTagString(ProductTag tag, CString name)
+	std::string m_Name;
+	ProductTagString(ProductTag tag, std::string name)
 		: m_Tag(tag)
 		, m_Name(name)
 	{
@@ -100,10 +101,10 @@ public:
 class CAllProductSpisok
 {
 	friend CAllProductSpisok* GetAllProductSpisok();
-	CAtlArray<ProductTagString> m_Array;
+	std::vector<ProductTagString> m_Array;
 public:
-	CString GetName(ProductTag tag);
-	ProductTag GetTag(CString Name);
+	std::string GetName(ProductTag tag);
+	ProductTag GetTag(std::string Name);
 private:
 	//создать можно только из GetAllProductSpisok
 	CAllProductSpisok(const CAllProductSpisok&) = delete;

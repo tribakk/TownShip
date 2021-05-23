@@ -5,48 +5,47 @@
 
 CProductCalc::CProductCalc()
 {
-	m_FactArray.Add(new CMilkFactory());
-	m_FactArray.Add(new CBakery());
-	m_FactArray.Add(new СWeavingFactory());
-	m_FactArray.Add(new CSewingFactory());
-	m_FactArray.Add(new CSnackFactory());
-	m_FactArray.Add(new CFastFoodFactory());
-	m_FactArray.Add(new CRubberFactory());
-	m_FactArray.Add(new CSugarFactory());
-	m_FactArray.Add(new CPaperFactory());
-	m_FactArray.Add(new CIceCreamFactory());
-	m_FactArray.Add(new СconfectioneryFactory());
+	m_FactArray.push_back(new CMilkFactory());
+	m_FactArray.push_back(new CBakery());
+	m_FactArray.push_back(new СWeavingFactory());
+	m_FactArray.push_back(new CSewingFactory());
+	m_FactArray.push_back(new CSnackFactory());
+	m_FactArray.push_back(new CFastFoodFactory());
+	m_FactArray.push_back(new CRubberFactory());
+	m_FactArray.push_back(new CSugarFactory());
+	m_FactArray.push_back(new CPaperFactory());
+	m_FactArray.push_back(new CIceCreamFactory());
+	m_FactArray.push_back(new СconfectioneryFactory());
 }
 
 CProductCalc::~CProductCalc()
 {
-	size_t count = m_FactArray.GetCount();
+	size_t count = m_FactArray.size();
 	for (size_t i = 0; i < count; i++)
 	{
 		delete m_FactArray[i];
 	}
 }
-void CProductCalc::AddNeed(CString name, int count)
+void CProductCalc::AddNeed(std::string name, int count)
 {
 	m_Array.Add(name, count);
 }
 
-void CProductCalc::AddAlreadyHave(CString name, int count)
+void CProductCalc::AddAlreadyHave(std::string name, int count)
 {
 	m_AlreadyHave.Add(name, count);
 }
 
 void CProductCalc::Calc()
 {
-	size_t count = m_FactArray.GetCount();
 	m_Array.ExcludeWhatHave(m_AlreadyHave);
 	//if (firstcalc)
 	//{
 
 	//}
-	for (size_t i = 0; i < count; i++)
+	for (auto iter = m_FactArray.begin(); iter != m_FactArray.end(); iter++)
 	{
-		CFactory* pFact = m_FactArray[i];
+		CFactory* pFact = *iter;
 		pFact->SetInput(m_Array);
 		pFact->Calc();
 		pFact->UpdateResult(m_Array);
@@ -56,18 +55,17 @@ void CProductCalc::Calc()
 
 void CProductCalc::Print()
 {
-	OutputDebugString(_T("Информация по фабрикам:\n\r"));
-	size_t count = m_FactArray.GetCount();
+	OutputDebugStringA("Информация по фабрикам:\n\r");
 	for (int pr = 0; pr < (int)PriorityTag::three + 1; pr++)
 	{
-		for (size_t i = 0; i < count; i++)
+		for (auto iter = m_FactArray.begin(); iter != m_FactArray.end(); iter++)
 		{
-			if (m_FactArray[i]->GetPriorety() == pr)
-				m_FactArray[i]->Print();
+			if ((*iter)->GetPriorety() == pr)
+				(*iter)->Print();
 		}
 
 	}
-	OutputDebugString(_T("\n\rИнформация по ингридиентам:\n\r"));
+	OutputDebugStringA("\n\rИнформация по ингридиентам:\n\r");
 	m_Array.Print();
 }
 
