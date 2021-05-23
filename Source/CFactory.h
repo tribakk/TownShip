@@ -63,6 +63,10 @@ public:
 		OutputDebugString(pr);
 		m_SmartInput.Print();
 	}
+	void Merge(CSmartArray& Array)
+	{
+		Array.Merge(m_SmartInput);
+	}
 };
 
 class CMilkFactory : public CFactory
@@ -152,6 +156,7 @@ public:
 		}
 		{
 			//бублик
+			count = m_InputCount[counter];
 			m_Result.Add(GetAllProductSpisok()->GetTag(_T("пшеница")), 2 * count);
 			m_Result.Add(GetAllProductSpisok()->GetTag(_T("€йцо")), 3 * count);
 			m_Result.Add(GetAllProductSpisok()->GetTag(_T("сахар")), 3 * count);

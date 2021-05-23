@@ -70,3 +70,10 @@ void CProductCalc::Print()
 	OutputDebugString(_T("\n\rИнформация по ингридиентам:\n\r"));
 	m_Array.Print();
 }
+
+std::unique_ptr<CSmartArray> CProductCalc::GetArray()
+{
+	std::unique_ptr<CSmartArray> pAllProduct = std::make_unique<CSmartArray>();
+	pAllProduct->Merge(m_Array);
+	return std::move(pAllProduct);
+}

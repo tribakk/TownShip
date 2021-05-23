@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "CSmartArray.h"
 #include "ProductTag.h"
 
@@ -17,4 +18,5 @@ public:
 	void AddAlreadyHave(CString name, int count);
 	void Calc();
 	void Print();
+	std::unique_ptr<CSmartArray> GetArray();
 };

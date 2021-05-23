@@ -166,6 +166,7 @@
     <ClCompile Include="..\Source\CProductCalc.cpp" />
     <ClCompile Include="..\Source\CSmartArray.cpp" />
     <ClCompile Include="..\Source\ProductTag.cpp" />
+    <ClCompile Include="CProductCalc_test.cpp" />
     <ClCompile Include="CSmartArray_test.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
